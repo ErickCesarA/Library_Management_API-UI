@@ -1,0 +1,74 @@
+<div *ngIf="book" class="search-box body">
+      <form class="row">
+        <div class="col-md-4">
+          <h2>Search a book in the library</h2>
+          <p>More information make the search more specific.</p>
+          <div class="form-group">
+              <div class="row">
+                  <div class="col-md-6">
+                      <input  [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title">
+                  </div>
+                  <div class="col-md-6">
+                      <input [(ngModel)]="book.bookSubTitle" type="text" class="form-control" name="subtitle" placeholder="Sub Title">
+                  </div>
+              </div>
+          </div>
+            <div class="mt-2">
+              <input [(ngModel)]="book.bookAutor" type="text" class="form-control" name="autor" placeholder="Autor">
+            </div>
+          <div class="mt-2">
+              <input [(ngModel)]="book.bookPublisher" type="text" class="form-control" name="publicher" placeholder="Publisher">
+          </div>
+          <div class="mt-2">
+              <input [(ngModel)]="book.bookEdition" type="text" class="form-control" name="edition" placeholder="Edition">
+          </div>
+          <div class="mt-2">
+            <input [(ngModel)]="book.bookPublication" type="text" class="form-control" name="publication" placeholder="Publication">
+        </div>
+          <div class="mt-2">
+              <label for="genresList">Genres</label>
+              <select class="form-control" id="genresList">
+                  <option>All Books</option>
+                  <option *ngFor="let genre of genres">{{genre.genresName}}</option>
+              </select>
+          </div>
+          <div class=" mt-2 ">
+            <div class="text center ">
+                <div>
+                <a type="button" class="btn btn-primary btn-sml" (click)="searchBook(book)">SEARCH</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive col-md-8">
+          <table class="table table-striped list-box">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Sub Title</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Genres</th>
+                <th scope="col">Edition</th>
+                <th scope="col">Copy Numb</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let book of books">
+                <td>{{book.bookTitle}}</td>
+                <td>{{book.bookSubTitle}}</td>
+                <td>{{book.bookAutor}}</td>
+                <td>{{book.bookGenres}}</td>
+                <td>{{book.bookPublisher}}</td>
+                <td>{{book.bookEdition}}</td>
+                <td>{{book.bookCopies}}</td>
+                <td><a type="button" (click)="BookToUpd(book)" class="btn btn-warning btn-sml">edit</a></td>
+                <td><a type="button" (click)="delBook(book)" class="btn btn-danger btn-sml">delete</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+  </div>
+
+
+

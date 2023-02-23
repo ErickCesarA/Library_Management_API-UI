@@ -1,0 +1,55 @@
+<body *ngIf="book" class="box body add-box">
+  <div class="d-grid justify-content-center">
+    <form>
+      <h2>Add a book to library</h2>
+        <p>Try to fill all filds.</p>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <input  [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title">
+              </div>
+              <div class="col-md-6">
+                <input [(ngModel)]="book.bookSubTitle" type="text" class="form-control" name="subtitle" placeholder="Sub Title">
+              </div>
+            </div>
+          </div>
+          <div class="mt-2">
+            <input [(ngModel)]="book.bookAutor" type="text" class="form-control" name="autor" placeholder="Autor">
+          </div>
+          <div class="mt-2">
+            <input [(ngModel)]="book.bookResume" type="text" class="form-control" name="autor" placeholder="Resume">
+          </div>
+          <div class="mt-2">
+            <input [(ngModel)]="book.bookPublisher" type="text" class="form-control" name="publicher" placeholder="Publicher">
+          </div>
+          <div class="mt-2">
+            <input [(ngModel)]="book.bookEdition" type="text" class="form-control" name="edition" placeholder="Edition">
+          </div>
+          <div class="mt-2">
+            <input [(ngModel)]="book.bookPublication" type="text" class="form-control" name="publication" placeholder="Publication">
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <input  [(ngModel)]="book.bookPgNumber" type="text" class="form-control" name="pagnumber" placeholder="Page Number">
+            </div>
+            <div class="col-md-6">
+              <input [(ngModel)]="book.bookCopies" type="text" class="form-control" name="copynumber" placeholder="Copy Number">
+            </div>
+          </div>
+          <div class="mt-2">
+            <label for="genresList">Genres</label>
+            <select class="form-control" id="genresList">
+              <option *ngFor="let genre of genres">{{genre.genresName}}</option>
+            </select>
+          </div>
+          <div class="mt-2">
+           <div class="text center ">
+              <div>
+                <a  type="button" class="btn btn-success btn-sml" (click)="addBook(book)" >ADD</a>
+              </div>
+           </div>
+          </div>
+    </form>
+  </div>
+</body>
+

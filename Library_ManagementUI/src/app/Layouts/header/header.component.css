@@ -1,0 +1,11 @@
+header{
+  height: 70px;
+  font-size: 30px;
+}
+.lib-logo
+{
+  padding: 3px 90px;
+  border-radius:5px;
+  background-color: var(--bar-color);
+  color: var(--body-text-color);
+}
