@@ -1,6 +1,7 @@
 ﻿using Library_ManagementAPI.Services.BookSevice;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel;
 
 namespace Library_ManagementAPI.Controllers
 {
@@ -25,8 +26,8 @@ namespace Library_ManagementAPI.Controllers
         }
         [HttpGet("{booktitle}")]
         public async Task<ActionResult<List<BooksModels>>> GetBooks(string booktitle, string booksubtitle = "",
-                                                                    string bookautor = "", string bookgenres = "",
-                                                                    string bookpublisher = "", string bookedition = "")
+                                                                    string bookautor="", string bookpublisher = "",
+                                                                    string bookedition = "", string bookgenres = "")
         {
 
             var result = await _bookService.GetBooks(booktitle, booksubtitle, bookautor, bookgenres,

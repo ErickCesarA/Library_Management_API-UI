@@ -1,4 +1,5 @@
-<div *ngIf="book" class="search-box body">
+<body *ngIf="book">
+<div class="search-box body">
       <form class="row">
         <div class="col-md-4">
           <h2>Search a book in the library</h2>
@@ -32,7 +33,7 @@
           <div class=" mt-2 ">
             <div class="text center ">
                 <div>
-                <a type="button" class="btn btn-primary btn-sml" (click)="searchBook(book)">SEARCH</a>
+                <a type="button" class="btn btn-primary btn-sml" (click)="searchBook(book)"(click)="updBookList(books)">SEARCH</a>
                 </div>
             </div>
           </div>
@@ -58,14 +59,13 @@
                 <td>{{book.bookPublisher}}</td>
                 <td>{{book.bookEdition}}</td>
                 <td>{{book.bookCopies}}</td>
-                <td><a type="button" (click)="BookToUpd(book)" class="btn btn-warning btn-sml">edit</a></td>
-                <td><a type="button" (click)="delBook(book)" class="btn btn-danger btn-sml">delete</a></td>
+                <td><a type="button" (click)="BookToUpd(book)" class="btn btn-warning btn-sml"><i class="bi bi-pencil-square"></i></a></td>
+                <td><a type="button" (click)="delBook(book)" class="btn btn-danger btn-sml"><i class="bi bi-trash3-fill"></i></a></td>
               </tr>
             </tbody>
           </table>
         </div>
       </form>
   </div>
-
-
+</body>
 

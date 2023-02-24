@@ -20,16 +20,17 @@ export class LibManageService {
   {
     return this.http.get<BooksModels[]>(`${environment.apiUrl}/${this.bookUrl}`)
   }
+
   public searchBooks(book : BooksModels) : Observable<BooksModels[]>
   {
     let bookParams = new HttpParams()
-    .set("subtitle", book.bookSubTitle)
-    .set("autor", book.bookAutor)
-    .set("publisher", book.bookPublisher)
-    .set("edition", book.bookEdition)
-    .set("genres", book.bookGenres);
+    .set("?booksubtitle",book.bookSubTitle)
+    .set("bookautor",book.bookAutor)
+    .set("bookpublisher",book.bookPublisher)
+    .set("bookedition",book.bookEdition)
+    .set("bookgenres",book.bookGenres);
 
-    return this.http.get<BooksModels[]>(`${environment.apiUrl}/${this.bookUrl}/${book.bookTitle}`,{params : bookParams})
+    return this.http.get<BooksModels[]>(`${environment.apiUrl}/${this.bookUrl}/${book.bookTitle}${bookParams}`)
   }
 
   public getGeres() : Observable<GenresModels[]>

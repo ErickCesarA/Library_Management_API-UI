@@ -46,7 +46,6 @@ export class ListBookComponent {
   delBook(book:BooksModels)
   {
     this.libmanageService.delBook(book).subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
-
   }
 
 }

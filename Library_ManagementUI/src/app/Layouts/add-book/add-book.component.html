@@ -6,7 +6,7 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <input  [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title" required>
+                <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title" required>
               </div>
               <div class="col-md-6">
                 <input [(ngModel)]="book.bookSubTitle" type="text" class="form-control" name="subtitle" placeholder="Sub Title">
@@ -17,7 +17,7 @@
             <input [(ngModel)]="book.bookAutor" type="text" class="form-control" name="autor" placeholder="Autor">
           </div>
           <div class="mt-2">
-            <input [(ngModel)]="book.bookResume" type="text" class="form-control" name="autor" placeholder="Resume">
+            <input [(ngModel)]="book.bookResume" type="text" class="form-control" name="resume" placeholder="Resume">
           </div>
           <div class="mt-2">
             <input [(ngModel)]="book.bookPublisher" type="text" class="form-control" name="publicher" placeholder="Publicher">
@@ -46,7 +46,7 @@
            </select>
           </div>
           <div class="col-md-4 mt-3">
-            <a type="button" class="btn btn-sml btn-primary btn-sml">+</a>
+            <a type="button" class="btn btn-sml btn-primary btn-sml"><i class="bi bi-plus-circle-fill"></i></a>
           </div>
           </div>
           <div class="mt-2">

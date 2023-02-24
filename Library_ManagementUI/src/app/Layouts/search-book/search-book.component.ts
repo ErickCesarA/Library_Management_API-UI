@@ -15,19 +15,22 @@ export class SearchBookComponent {
 
   title = 'Lib_Management.UI'
   books: BooksModels[] = [];
-  genres: GenresModels [] = [];
+  genres: GenresModels[] = [];
 
   constructor(private libmanageService: LibManageService){}
 
   ngOnInit() : void
   {
     this.libmanageService
+    .getBooks()
+    .subscribe((result: BooksModels[])=>(this.books = result));
+    this.libmanageService
     .getGeres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
   }
   updBookList(books: BooksModels[] )
   {
-    this.books = books;
+
   }
   BookToUpd(book:BooksModels)
   {
@@ -39,7 +42,14 @@ export class SearchBookComponent {
   }
   searchBook(book : BooksModels)
   {
-    this.libmanageService.searchBooks(book).subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
+    this.libmanageService
+    .searchBooks(book)
+    .subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
+    this.libmanageService
+
+    .searchBooks(book)
+    .subscribe((result: BooksModels[])=>(this.books = result));
+
   }
 
 }
