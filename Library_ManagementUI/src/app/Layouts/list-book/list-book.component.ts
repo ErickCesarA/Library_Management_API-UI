@@ -23,11 +23,11 @@ export class ListBookComponent {
   ngOnInit() : void
   {
     this.libmanageService
-    .getBooks()
-    .subscribe((result: BooksModels[])=>(this.books = result));
+      .getBooks()
+      .subscribe((result: BooksModels[])=>(this.books = result));
     this.libmanageService
-    .getGeres()
-    .subscribe((result: GenresModels[])=>(this.genres = result));
+      .getGeres()
+      .subscribe((result: GenresModels[])=>(this.genres = result));
 
   }
   initNewBook()

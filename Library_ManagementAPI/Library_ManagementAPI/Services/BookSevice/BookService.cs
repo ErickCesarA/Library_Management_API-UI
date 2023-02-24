@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Security.Cryptography;
 
 namespace Library_ManagementAPI.Services.BookSevice
@@ -24,11 +25,11 @@ namespace Library_ManagementAPI.Services.BookSevice
                                                             string bookpublisher, string bookedition)
         {
             var books = await _context.BooksPropety.Where(bt => bt.bookTitle.Contains(booktitle))
-                                                   .Where(bt => bt.bookSubTitle.Contains(booksubtitle))
-                                                   .Where(bt => bt.bookAutor.Contains(bookautor))
-                                                   .Where(bt => bt.bookGenres.Contains(bookgenres))
-                                                   .Where(bt => bt.bookPublisher.Contains(bookpublisher))
-                                                   .Where(bt => bt.bookEdition.Contains(bookedition)).ToListAsync();
+                                                   .Where(bst => bst.bookSubTitle.Contains(booksubtitle))
+                                                   .Where(ba => ba.bookAutor.Contains(bookautor))
+                                                   .Where(bg => bg.bookGenres.Contains(bookgenres))
+                                                   .Where(bps => bps.bookPublisher.Contains(bookpublisher))
+                                                   .Where(be => be.bookEdition.Contains(bookedition)).ToListAsync();
             if (books == null)
                 return null;
 

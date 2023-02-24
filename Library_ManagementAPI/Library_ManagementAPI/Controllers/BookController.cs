@@ -1,5 +1,6 @@
 ﻿using Library_ManagementAPI.Services.BookSevice;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Library_ManagementAPI.Controllers
 {
@@ -9,22 +10,22 @@ namespace Library_ManagementAPI.Controllers
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
-    
+
         public BookController(IBookService bookService)
         {
             _bookService = bookService;
         }
-        
+
         [HttpGet]
         public async Task<ActionResult<List<BooksModels>>> GetAllBooks()
         {
-           
-           return await _bookService.GetAllBooks();
-         
+
+            return await _bookService.GetAllBooks();
+
         }
         [HttpGet("{booktitle}")]
-        public async Task<ActionResult<List<BooksModels>>> GetBooks(string booktitle, string booksubtitle = "", 
-                                                                    string bookautor = "", string bookgenres = "", 
+        public async Task<ActionResult<List<BooksModels>>> GetBooks(string booktitle, string booksubtitle = "",
+                                                                    string bookautor = "", string bookgenres = "",
                                                                     string bookpublisher = "", string bookedition = "")
         {
 

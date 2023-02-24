@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { BooksModels } from 'src/app/Models/book-model'
@@ -12,7 +12,6 @@ export class LibManageService {
 
 
   private bookUrl = "Book";
-  private bookfilterUrl = "Filter"
   private genresListUrl = "Genres";
 
   constructor(private http: HttpClient ) { }
@@ -23,7 +22,14 @@ export class LibManageService {
   }
   public searchBooks(book : BooksModels) : Observable<BooksModels[]>
   {
-    return this.http.get<BooksModels[]>(`${environment.apiUrl}/${this.bookUrl}/${this.bookfilterUrl}`)
+    let bookParams = new HttpParams()
+    .set("subtitle", book.bookSubTitle)
+    .set("autor", book.bookAutor)
+    .set("publisher", book.bookPublisher)
+    .set("edition", book.bookEdition)
+    .set("genres", book.bookGenres);
+
+    return this.http.get<BooksModels[]>(`${environment.apiUrl}/${this.bookUrl}/${book.bookTitle}`,{params : bookParams})
   }
 
   public getGeres() : Observable<GenresModels[]>
