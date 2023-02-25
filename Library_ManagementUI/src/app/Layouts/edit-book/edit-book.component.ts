@@ -21,7 +21,7 @@ export class EditBookComponent {
   ngOnInit() : void
   {
     this.libmanageService
-    .getGeres()
+    .getGenres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
 
   }

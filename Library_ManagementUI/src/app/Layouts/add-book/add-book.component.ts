@@ -29,22 +29,19 @@ export class AddBookComponent {
   ngOnInit() : void
   {
     this.libmanageService
-    .getGeres()
+    .getGenres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
 
   }
 
   addBook(book :BooksModels)
   {
-    this.libmanageService.addBook(book).subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
+    this.libmanageService
+      .addBook(book)
+      .subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
 
   }
-  addGenres(genres :GenresModels)
-  {
-    this.libmanageService.addGenres(genres).subscribe((genres : GenresModels[])=>this.genresUpdate.emit(genres));
-
-  }
-  toAddGenre()
+  toAddGenres()
   {
     this.genresCrud = new GenresModels()
   }

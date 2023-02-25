@@ -68,7 +68,7 @@ export class LibManageService {
     .pipe(catchError(this.handleError))
   }
 
-  public getGeres() : Observable<GenresModels[]>
+  public getGenres() : Observable<GenresModels[]>
   {
     return this.http.get<GenresModels[]>(`${environment.apiUrl}/${this.genresListUrl}`)
     .pipe(catchError(this.handleError))

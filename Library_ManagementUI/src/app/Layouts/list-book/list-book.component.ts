@@ -27,7 +27,7 @@ export class ListBookComponent {
       .getBooks()
       .subscribe((result: BooksModels[])=>(this.books = result));
     this.libmanageService
-      .getGeres()
+      .getGenres()
       .subscribe((result: GenresModels[])=>(this.genres = result));
 
   }

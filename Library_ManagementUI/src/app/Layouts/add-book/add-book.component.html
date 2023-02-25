@@ -45,7 +45,7 @@
             </select>
           </div>
             <div class="col-md-4">
-              <a  type="button" class="btn btn-success btn-sml" (click)="toAddGenre()"><i class="bi bi-plus-circle-fill"></i></a>
+              <a  type="button" class="btn btn-success btn-sml" (click)="toAddGenres()"><i class="bi bi-plus-circle-fill"></i></a>
             </div>
           <div class="col-md-6">
             <app-crud-genres [genre]="genresCrud"></app-crud-genres>
@@ -67,9 +67,5 @@
     </form>
   </div>
   <form>
-    <div *ngIf="genre" class="col-md-4 mt-3">
-      <input [(ngModel)]="genre.genresName" type="text" class="form-control" name="genrsname" placeholder="Add a Genre">
-      <a  type="button" class="btn btn-success btn-sml" (click)="addGenres(genre)">ADD</a>
-  </div>
   </form>
 </body>
