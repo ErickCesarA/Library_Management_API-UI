@@ -20,7 +20,7 @@
       * Editar informações de um livro.
       * Excluir livro.
       * Buscar/filtrar livro.
-      * + Buscar apesa livros de uma mesmo genero.
+      * Buscar apesa livros de uma mesmo genero.
     * ## Objetivos (próprios e exigidos) não concluídos:
       * Não há alguns parâmetros de validação de dados (verificar se um livro já existe, parâmetros obrigatorios na criação).
       * Sistema de número de cópias disponíveis.
