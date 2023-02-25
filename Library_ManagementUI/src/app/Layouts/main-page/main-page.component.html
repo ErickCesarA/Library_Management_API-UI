@@ -1,11 +1,10 @@
 <header class="row navbar main-box">
-  <div class=" container justify-content-center gap-5">
-      <a type="button" (click)="initListBook()" class="btn btn-warning btn-sml">LIST BOOK</a>
+  <div class=" container justify-content-center gap-3">
       <a type="button" (click)="initNewBook()" class="btn btn-success btn-sml">ADD BOOK</a>
       <a type="button" (click)="initSearch()" class="btn btn-primary btn-sml">SEARCH BOOK</a>
   </div>
 </header>
 
-<app-list-book [book]="bookToList"></app-list-book>
+<app-list-book></app-list-book>
 <app-add-book [book]="bookToAdd"></app-add-book>
 <app-search-book [book]="bookToSearch"></app-search-book>

@@ -1,14 +1,16 @@
 <body class="body">
     <div class="func-box">
-      <table class="table table-striped table-responsive">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Title</th>
             <th scope="col">Sub Title</th>
             <th scope="col">Autor</th>
-            <th scope="col">Genre</th>
             <th scope="col">Publicher</th>
             <th scope="col">Edition</th>
+            <th scope="col">Genres</th>
+            <th scope="col">Publication</th>
+            <th scope="col">Pag Number</th>
             <th scope="col">Copy Number</th>
           </tr>
         </thead>
@@ -17,12 +19,14 @@
             <td>{{book.bookTitle}}</td>
             <td>{{book.bookSubTitle}}</td>
             <td>{{book.bookAutor}}</td>
-            <td>{{book.bookGenres}}</td>
             <td>{{book.bookPublisher}}</td>
             <td>{{book.bookEdition}}</td>
+            <td>{{book.bookGenres}}</td>
+            <td>{{book.bookPublication}}</td>
+            <td>{{book.bookPgNumber}}</td>
             <td>{{book.bookCopies}}</td>
-            <td><a type="button" (click)="editBook(book)" class="btn btn-warning btn-sml" ><i class="bi bi-pencil-square"></i></a></td>
-            <td><a type="button" (click)="delBook(book)"  class="btn btn-danger btn-sml"><i class="bi bi-trash3-fill"></i></a></td>
+            <td><a type="button" (click)="editBook(book)" class="btn btn-warning btn-sml"><i class="bi bi-pencil-square"></i></a></td>
+            <td><a type="button" (click)="delBook(book)" class="btn btn-danger btn-sml"><i class="bi bi-trash3-fill"></i></a></td>
           </tr>
         </tbody>
       </table>

@@ -24,9 +24,23 @@ export class SearchBookComponent {
 
   ngOnInit() : void
   {
+    this.libmanageService.refreshLists.subscribe(()=>{this.getAllBooks();});
+
+    this.getAllBooks();
+
+    this.libmanageService.refreshLists.subscribe(()=>{this.getAllGenres();});
+
+    this.getAllGenres();
+  }
+  private getAllBooks ()
+  {
     this.libmanageService
     .getBooks()
     .subscribe((result: BooksModels[])=>(this.books = result));
+  this.libmanageService
+  }
+  private getAllGenres ()
+  {
     this.libmanageService
     .getGenres()
     .subscribe((result: GenresModels[])=>(this.genres = result));

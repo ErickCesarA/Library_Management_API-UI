@@ -46,9 +46,10 @@
                 <th scope="col">Title</th>
                 <th scope="col">Sub Title</th>
                 <th scope="col">Autor</th>
-                <th scope="col">Genres</th>
+                <th scope="col">Publicher</th>
                 <th scope="col">Edition</th>
-                <th scope="col">Copy Numb</th>
+                <th scope="col">Genres</th>
+                <th scope="col">Copy Number</th>
               </tr>
             </thead>
             <tbody>
@@ -56,9 +57,9 @@
                 <td>{{book.bookTitle}}</td>
                 <td>{{book.bookSubTitle}}</td>
                 <td>{{book.bookAutor}}</td>
-                <td>{{book.bookGenres}}</td>
                 <td>{{book.bookPublisher}}</td>
                 <td>{{book.bookEdition}}</td>
+                <td>{{book.bookGenres}}</td>
                 <td>{{book.bookCopies}}</td>
                 <td><a type="button" (click)="editBook(book)" class="btn btn-warning btn-sml"><i class="bi bi-pencil-square"></i></a></td>
                 <td><a type="button" (click)="delBook(book)" class="btn btn-danger btn-sml"><i class="bi bi-trash3-fill"></i></a></td>

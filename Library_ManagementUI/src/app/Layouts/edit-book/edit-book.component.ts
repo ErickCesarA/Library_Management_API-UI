@@ -20,10 +20,15 @@ export class EditBookComponent {
 
   ngOnInit() : void
   {
+    this.libmanageService.refreshLists.subscribe(()=>{this.getAllGenres();});
+
+    this.getAllGenres();
+  }
+  private getAllGenres ()
+  {
     this.libmanageService
     .getGenres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
-
   }
   updBook(book : BooksModels)
   {

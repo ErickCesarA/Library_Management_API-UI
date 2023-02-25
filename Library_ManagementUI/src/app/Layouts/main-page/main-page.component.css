@@ -1,6 +1,6 @@
 .main-box
 {
   font-family: 'Rubik', sans-serif;
-  background-color: var(--primary-color);
+  background-color: var(--bar-color);
   margin-top: 20px;
 }

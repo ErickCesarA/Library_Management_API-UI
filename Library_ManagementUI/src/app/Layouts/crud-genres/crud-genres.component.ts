@@ -25,12 +25,6 @@ export class CrudGenresComponent {
     this.libmanageService
     .addGenres(genre)
     .subscribe((genres : GenresModels[])=>this.genresUpdate.emit(genres));
-    this.libmanageService
-    .getGenres()
-    .subscribe((genre : GenresModels[])=>this.genresUpdate.emit(genre));
-    this.libmanageService
-    .getGenres()
-    .subscribe((result: GenresModels[])=>(this.genres = result));
   }
   editGenres(genre :GenresModels)
   {

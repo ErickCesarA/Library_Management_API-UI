@@ -11,8 +11,6 @@ export class MainPageComponent {
   books: BooksModels[] = [];
   bookToAdd?:BooksModels;
   bookToSearch?:BooksModels;
-  bookToList?:BooksModels;
-
 
   initNewBook()
   {
@@ -21,10 +19,6 @@ export class MainPageComponent {
   initSearch()
   {
     this.bookToSearch = new BooksModels();
-  }
-  initListBook()
-  {
-    this.bookToList = new BooksModels();
   }
 }
 

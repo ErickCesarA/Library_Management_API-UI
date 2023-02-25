@@ -23,13 +23,17 @@ export class ListBookComponent {
 
   ngOnInit() : void
   {
-    this.libmanageService
-      .getBooks()
-      .subscribe((result: BooksModels[])=>(this.books = result));
-    this.libmanageService
-      .getGenres()
-      .subscribe((result: GenresModels[])=>(this.genres = result));
+    this.libmanageService.refreshLists.subscribe(()=>{this.getAllBooks();});
 
+    this.getAllBooks();
+
+  }
+  private getAllBooks ()
+  {
+    this.libmanageService
+    .getBooks()
+    .subscribe((result: BooksModels[])=>(this.books = result));
+  this.libmanageService
   }
   initNewBook()
   {
@@ -43,6 +47,8 @@ export class ListBookComponent {
   delBook(book:BooksModels)
   {
     this.libmanageService.delBook(book).subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
+
+    this.libmanageService.refreshLists.subscribe(()=>{this.getAllBooks();});
 
   }
 
