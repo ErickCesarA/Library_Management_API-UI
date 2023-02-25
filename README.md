@@ -7,22 +7,25 @@
 * ### Projeto API finalizado e com todos os aspectos desejados.
    * Adicionar um livro.
    * Chamar uma lista de livros.
-   * Buscar um único livro com um sistema de filtragem (mais informações dadas realiza uma busca mais especifica ate obter o resultado de apenas um livro).
+   * Buscar um único livro com um sistema de filtragem (mais informações dadas realiza uma busca mais especifica até obter o resultado de apenas um livro).
    * Alterar as informações de um livro.
    * Excluir livros.
    * Integrar a um banco de dados.
+   * + CRUD para generos de livros.
 * ### Projeto UI parcialmente finalizada:
    * ## Objetivos (próprios e exigidos) concluídos:
       * Integrar API + UI + Banco de dados.
       * Chamar lista de livros.
-      * Adicionar livro (porem a lista não atualiza sozinha).
+      * Adicionar livro.
       * Editar informações de um livro.
       * Excluir livro.
       * Buscar/filtrar livro.
+      * + Buscar apesa livros de uma mesmo genero.
     * ## Objetivos (próprios e exigidos) não concluídos:
-      * Não há alguns parâmetros de verificação (verificar se um livro já existe, parâmetros obrigatorios na criação).
+      * Não há alguns parâmetros de validação de dados (verificar se um livro já existe, parâmetros obrigatorios na criação).
       * Sistema de número de cópias disponíveis.
-      * Erros do console apareceram como pop ups
+      * Erros do console apareceram como pop ups.
+      * Alternar entre os componentes na página ao invés de apenas criá-los.
       
     
 
