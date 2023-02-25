@@ -67,7 +67,15 @@ export class SearchBookComponent {
     this.libmanageService
     .searchBooks(book)
     .subscribe((result: BooksModels[])=>(this.books = result));
-
+  }
+  searchBookGenres(book : BooksModels)
+  {
+    this.libmanageService
+    .searchBookGenres(book)
+    .subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
+    this.libmanageService
+    .searchBookGenres(book)
+    .subscribe((result: BooksModels[])=>(this.books = result));
   }
 
 }

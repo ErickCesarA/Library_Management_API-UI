@@ -6,6 +6,7 @@ export class BooksModels
   bookResume  ="" ;
   bookAutor  = "" ;
   bookGenres  = "" ;
+  bookOnlyGenres ="";
   bookPublisher  = "" ;
   bookEdition = "" ;
   bookPublication?: string = new Date().toISOString() ;

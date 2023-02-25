@@ -2,20 +2,31 @@
   <style>
     select:invalid { color: gray; }
   </style>
-      <form class="row func-box">
+  <div class="func-box">
+     <h2>Search a book in the library</h2>
+      <p>More information make the search more specific.</p>
+      <form class="row">
         <div class="col-md-4">
-          <h2>Search a book in the library</h2>
-          <p>More information make the search more specific.</p>
-          <div class="form-group">
-              <div class="row">
-                  <div class="col-md-6">
-                      <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title">
-                  </div>
-                  <div class="col-md-6">
-                      <input [(ngModel)]="book.bookSubTitle" type="text" class="form-control" name="subtitle" placeholder="Sub Title">
-                  </div>
-              </div>
+          <select class="form-control" id="genresList" required [(ngModel)]="book.bookOnlyGenres" name="onlygenres">
+            <option value="" disabled selected hidden>Serach only for genres</option>
+            <option></option>
+            <option *ngFor="let genre of genres">{{genre.genresName}}</option>
+        </select>
+        </div>
+          <div class="col-md-4">
+            <a type="button" class="btn btn-primary btn-sml" (click)="searchBookGenres(book)"><i class="bi bi-search"></i></a>
           </div>
+        </form>
+      <form class="row">
+        <div class="col-md-4">
+            <div class="row mt-2">
+              <div class="col-md-6">
+                  <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title">
+              </div>
+              <div class="col-md-6">
+                  <input [(ngModel)]="book.bookSubTitle" type="text" class="form-control" name="subtitle" placeholder="Sub Title">
+              </div>
+            </div>
             <div class="mt-2">
               <input [(ngModel)]="book.bookAutor" type="text" class="form-control" name="autor" placeholder="Autor">
             </div>
@@ -28,6 +39,7 @@
           <div class="mt-2">
               <select class="form-control" id="genresList" required [(ngModel)]="book.bookGenres" name="genres">
                   <option value="" disabled selected hidden>Genres</option>
+                  <option></option>
                   <option *ngFor="let genre of genres">{{genre.genresName}}</option>
               </select>
           </div>
@@ -71,5 +83,6 @@
   <div>
     <app-edit-book  [book]="bookToEdit"></app-edit-book>
   </div>
+</div>
 </body>
 

@@ -13,6 +13,7 @@ export class LibManageService {
 
   private bookUrl = "Book";
   private genresListUrl = "Genres";
+  private bookGenresUrl = "genres";
   private _refreshLists = new Subject<void>();
 
   constructor(private http: HttpClient ) { }
@@ -38,6 +39,10 @@ export class LibManageService {
 
     return this.http.get<BooksModels[]>(`${environment.apiUrl}/${this.bookUrl}/${book.bookTitle}${bookParams}`)
 
+  }
+  public searchBookGenres(book : BooksModels) : Observable<BooksModels[]>
+  {
+    return this.http.get<BooksModels[]>(`${environment.apiUrl}/${this.bookUrl}/${this.bookGenresUrl}/${book.bookOnlyGenres}`)
   }
 
   public updBook(book : BooksModels) : Observable<BooksModels[]>

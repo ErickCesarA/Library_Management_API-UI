@@ -1,7 +1,5 @@
 ﻿using Library_ManagementAPI.Services.BookSevice;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.ComponentModel;
 
 namespace Library_ManagementAPI.Controllers
 {
@@ -38,8 +36,8 @@ namespace Library_ManagementAPI.Controllers
             return Ok(result);
 
         }
-        [HttpGet("Genres_Filte")]
-        public async Task<ActionResult<List<BooksModels>>> GetBooksGenres(string bookgenres = "")
+        [HttpGet("genres/{bookgenres}")]
+        public async Task<ActionResult<List<BooksModels>>> GetBooksGenres(string bookgenres)
         {
             var result = await _bookService.GetBooksGenres(bookgenres);
             if (result == null)
