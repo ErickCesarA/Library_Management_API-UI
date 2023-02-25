@@ -19,10 +19,8 @@
       * Editar informações de um livro.
       * Excluir livro.
       * Buscar/filtrar livro.
-      * Definição de generos de livros.
     * ## Objetivos (próprios e exigidos) não concluídos:
-      * Não há alguns parâmetros de verificação (verificar se um livro já existe).
-      * Não há atualização dinâmica da página.
+      * Não há alguns parâmetros de verificação (verificar se um livro já existe, parâmetros obrigatorios na criação).
       * Sistema de número de cópias disponíveis.
       * Erros do console apareceram como pop ups
       
