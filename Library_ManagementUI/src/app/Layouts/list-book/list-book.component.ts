@@ -9,6 +9,7 @@ import { LibManageService } from 'src/app/Services/Lib-Manage.service';
   styleUrls: ['./list-book.component.css']
 })
 export class ListBookComponent {
+
   @Input() book?: BooksModels;
   @Output() bookUpdate = new EventEmitter<BooksModels[]>();
 
@@ -34,10 +35,6 @@ export class ListBookComponent {
   {
     this.bookToAdd = new BooksModels();
   }
-  updBookList(books: BooksModels[] )
-  {
-    this.books = books;
-  }
   editBook(book:BooksModels)
   {
     this.bookToEdit = book;
@@ -46,6 +43,7 @@ export class ListBookComponent {
   delBook(book:BooksModels)
   {
     this.libmanageService.delBook(book).subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
+
   }
 
 }

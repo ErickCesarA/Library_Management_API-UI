@@ -1,0 +1,11 @@
+<body *ngIf="genre">
+  <div class="add-genre-box">
+    <form class="row">
+      <div class="form-group col-md-8">
+        <input type="tesx" class="form-control" id="genrename" placeholder="Genre to add">
+      </div>
+      <a type="button" type="submit" class="btn btn-success btn-sml col-md-4" (click)="addGenres(genre)"><i class="bi bi-plus-circle-fill"></i></a>
+    </form>
+  </div>
+</body>
+

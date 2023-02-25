@@ -1,6 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component} from '@angular/core';
 import { BooksModels } from 'src/app/Models/book-model';
-import { LibManageService } from 'src/app/Services/Lib-Manage.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +8,23 @@ import { LibManageService } from 'src/app/Services/Lib-Manage.service';
 })
 export class MainPageComponent {
 
-  constructor(private libmanageService: LibManageService) {}
+  books: BooksModels[] = [];
+  bookToAdd?:BooksModels;
+  bookToSearch?:BooksModels;
+  bookToList?:BooksModels;
 
+
+  initNewBook()
+  {
+    this.bookToAdd = new BooksModels();
+  }
+  initSearch()
+  {
+    this.bookToSearch = new BooksModels();
+  }
+  initListBook()
+  {
+    this.bookToList = new BooksModels();
+  }
 }
 

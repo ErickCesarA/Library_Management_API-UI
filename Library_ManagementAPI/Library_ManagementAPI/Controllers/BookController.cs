@@ -26,7 +26,7 @@ namespace Library_ManagementAPI.Controllers
         }
         [HttpGet("{booktitle}")]
         public async Task<ActionResult<List<BooksModels>>> GetBooks(string booktitle, string booksubtitle = "",
-                                                                    string bookautor="", string bookpublisher = "",
+                                                                    string bookautor = "", string bookpublisher = "",
                                                                     string bookedition = "", string bookgenres = "")
         {
 

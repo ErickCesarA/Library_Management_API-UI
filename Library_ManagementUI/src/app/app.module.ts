@@ -11,6 +11,7 @@ import { ListBookComponent } from './Layouts/list-book/list-book.component';
 import { AddBookComponent } from './Layouts/add-book/add-book.component';
 import { EditBookComponent } from './Layouts/edit-book/edit-book.component';
 import { FormsModule } from '@angular/forms';
+import { CrudGenresComponent } from './Layouts/crud-genres/crud-genres.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     ListBookComponent,
     AddBookComponent,
     EditBookComponent,
+    CrudGenresComponent,
   ],
   imports: [
     BrowserModule,

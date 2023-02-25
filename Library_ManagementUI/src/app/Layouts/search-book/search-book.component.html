@@ -1,6 +1,8 @@
-<body *ngIf="book">
-<div class="search-box body">
-      <form class="row">
+<body *ngIf="book" class="body">
+  <style>
+    select:invalid { color: gray; }
+  </style>
+      <form class="row func-box">
         <div class="col-md-4">
           <h2>Search a book in the library</h2>
           <p>More information make the search more specific.</p>
@@ -24,22 +26,21 @@
               <input [(ngModel)]="book.bookEdition" type="text" class="form-control" name="edition" placeholder="Edition">
           </div>
           <div class="mt-2">
-              <label for="genresList">Genres</label>
-              <select class="form-control" id="genresList">
-                  <option>All Genres Books</option>
+              <select class="form-control" id="genresList" required [(ngModel)]="book.bookGenres" name="genres">
+                  <option value="" disabled selected hidden>Genres</option>
                   <option *ngFor="let genre of genres">{{genre.genresName}}</option>
               </select>
           </div>
           <div class=" mt-2 ">
             <div class="text center ">
                 <div>
-                <a type="button" class="btn btn-primary btn-sml" (click)="searchBook(book)"(click)="updBookList(books)">SEARCH</a>
+                <a type="button" class="btn btn-primary btn-sml" (click)="searchBook(book)">SEARCH</a>
                 </div>
             </div>
           </div>
         </div>
         <div class="table-responsive col-md-8">
-          <table class="table table-striped list-box">
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Title</th>
@@ -59,13 +60,15 @@
                 <td>{{book.bookPublisher}}</td>
                 <td>{{book.bookEdition}}</td>
                 <td>{{book.bookCopies}}</td>
-                <td><a type="button" (click)="BookToUpd(book)" class="btn btn-warning btn-sml"><i class="bi bi-pencil-square"></i></a></td>
+                <td><a type="button" (click)="editBook(book)" class="btn btn-warning btn-sml"><i class="bi bi-pencil-square"></i></a></td>
                 <td><a type="button" (click)="delBook(book)" class="btn btn-danger btn-sml"><i class="bi bi-trash3-fill"></i></a></td>
               </tr>
             </tbody>
           </table>
         </div>
       </form>
+  <div>
+    <app-edit-book  [book]="bookToEdit"></app-edit-book>
   </div>
 </body>
 

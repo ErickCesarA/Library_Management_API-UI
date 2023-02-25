@@ -16,6 +16,9 @@ export class SearchBookComponent {
   title = 'Lib_Management.UI'
   books: BooksModels[] = [];
   genres: GenresModels[] = [];
+  bookToEdit?: BooksModels;
+  bookToAdd?:BooksModels;
+
 
   constructor(private libmanageService: LibManageService){}
 
@@ -28,17 +31,19 @@ export class SearchBookComponent {
     .getGeres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
   }
-  updBookList(books: BooksModels[] )
+  initNewBook()
   {
+    this.bookToAdd = new BooksModels();
+  }
+  editBook(book:BooksModels)
+  {
+    this.bookToEdit = book;
 
   }
-  BookToUpd(book:BooksModels)
+  delBook(book:BooksModels)
   {
+    this.libmanageService.delBook(book).subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
 
-  }
-  delBook(book : BooksModels)
-  {
-    this.libmanageService.delBook(book).subscribe((books)=>this.bookUpdate.emit(books));
   }
   searchBook(book : BooksModels)
   {
@@ -46,7 +51,6 @@ export class SearchBookComponent {
     .searchBooks(book)
     .subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
     this.libmanageService
-
     .searchBooks(book)
     .subscribe((result: BooksModels[])=>(this.books = result));
 

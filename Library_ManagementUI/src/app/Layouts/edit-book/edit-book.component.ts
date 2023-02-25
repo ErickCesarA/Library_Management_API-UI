@@ -28,8 +28,6 @@ export class EditBookComponent {
   updBook(book : BooksModels)
   {
     this.libmanageService.updBook(book).subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
-
   }
-
 
 }

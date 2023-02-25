@@ -1,11 +1,12 @@
-header{
-  height: 70px;
-  font-size: 30px;
-}
-.lib-logo
+.head-box
 {
   padding: 3px 90px;
   border-radius:5px;
   background-color: var(--bar-color);
   color: var(--body-text-color);
+
+}
+header{
+  height: 60px;
+  font-size: 20px;
 }

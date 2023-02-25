@@ -1,8 +1,9 @@
-<body *ngIf="book">
-    <div class="d-grid justify-content-center body">
-        <form>
-            <h2>Edit or delete a book</h2>
+<body *ngIf="book" class="body">
+    <div class="d-grid justify-content-center func-box">
+        <form class="row">
+            <h2>Edit a book</h2>
             <p>make sure you fill in the fields correctly.</p>
+            <div class="col-md-6">
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
@@ -15,9 +16,6 @@
             </div>
               <div class="mt-2">
                 <input [(ngModel)]="book.bookAutor" type="text" class="form-control" name="autor" placeholder="Autor">
-              </div>
-              <div class="mt-2">
-                <input [(ngModel)]="book.bookResume" type="text" class="form-control" name="resume" placeholder="Resume">
               </div>
             <div class="mt-2">
                 <input [(ngModel)]="book.bookPublisher" type="text" class="form-control" name="publicher" placeholder="Publicher">
@@ -47,6 +45,11 @@
                     <a type="button" class="btn btn-success btn-sml" (click)="updBook(book)">CONFIRM EDIT</a>
               </div>
             </div>
+          </div>
+            <div class="col-md-6">
+              <textarea required [(ngModel)]="book.bookResume" type="text" class="form-control resume-box" name="resume" placeholder="Resume">
+              </textarea>
+              </div>
         </form>
     </div>
 </body>

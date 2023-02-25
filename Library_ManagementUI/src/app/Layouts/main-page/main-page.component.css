@@ -1,7 +1,6 @@
-.book-options{
-  margin-top:200px;
-  margin-bottom:20px;
-  padding: 40px;
-  border-radius: 5px;
-  background-color: var(--bar-color);
+.main-box
+{
+  font-family: 'Rubik', sans-serif;
+  background-color: var(--primary-color);
+  margin-top: 20px;
 }

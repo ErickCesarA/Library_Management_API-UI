@@ -1,26 +1,27 @@
-<body *ngIf="book" class="box body add-box">
-  <div class="d-grid justify-content-center">
-    <form>
+<body *ngIf="book" class="body">
+  <div class="func-box">
+    <style>
+      select:invalid { color: gray; }
+    </style>
+    <form class="row">
       <h2>Add a book to library</h2>
         <p>Try to fill all filds.</p>
+        <div class="col-md-6">
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title" required>
+                <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title" maxlength="100" required>
               </div>
               <div class="col-md-6">
-                <input [(ngModel)]="book.bookSubTitle" type="text" class="form-control" name="subtitle" placeholder="Sub Title">
+                <input [(ngModel)]="book.bookSubTitle" type="text" class="form-control" name="subtitle" placeholder="Sub Title" maxlength="100">
               </div>
             </div>
           </div>
           <div class="mt-2">
-            <input [(ngModel)]="book.bookAutor" type="text" class="form-control" name="autor" placeholder="Autor">
+            <input [(ngModel)]="book.bookAutor" type="text" class="form-control" name="autor" placeholder="Autor" maxlength="50">
           </div>
           <div class="mt-2">
-            <input [(ngModel)]="book.bookResume" type="text" class="form-control" name="resume" placeholder="Resume">
-          </div>
-          <div class="mt-2">
-            <input [(ngModel)]="book.bookPublisher" type="text" class="form-control" name="publicher" placeholder="Publicher">
+            <input [(ngModel)]="book.bookPublisher" type="text" class="form-control" name="publicher" placeholder="Publicher"  maxlength="150">
           </div>
           <div class="mt-2">
             <input [(ngModel)]="book.bookEdition" type="text" class="form-control" name="edition" placeholder="Edition">
@@ -38,15 +39,16 @@
           </div>
           <div class=" row mt-2">
             <div class="col-md-8">
-            <label>Genres</label>
-              <select class="form-control">
-                  <option *ngFor="let genre of genres">
-                    <input [ngModel]="book.bookGenres" type="text" name="genres">{{genre.genresName}}
-                   </option>
-           </select>
+              <select class="form-control" id="genresList" required [(ngModel)]="book.bookGenres" name="genres">
+                <option value="" disabled selected hidden>Genres</option>
+                <option *ngFor="let genre of genres">{{genre.genresName}}</option>
+            </select>
           </div>
-          <div class="col-md-4 mt-3">
-            <a type="button" class="btn btn-sml btn-primary btn-sml"><i class="bi bi-plus-circle-fill"></i></a>
+            <div class="col-md-4">
+              <a  type="button" class="btn btn-success btn-sml" (click)="toAddGenre()"><i class="bi bi-plus-circle-fill"></i></a>
+            </div>
+          <div class="col-md-6">
+            <app-crud-genres [genre]="genresCrud"></app-crud-genres>
           </div>
           </div>
           <div class="mt-2">
@@ -56,7 +58,18 @@
               </div>
            </div>
           </div>
+
+        </div>
+        <div class="col-md-6">
+          <textarea required [(ngModel)]="book.bookResume" type="text" class="form-control resume-box" name="resume" placeholder="Resume" maxlength="500">
+          </textarea>
+          </div>
     </form>
   </div>
+  <form>
+    <div *ngIf="genre" class="col-md-4 mt-3">
+      <input [(ngModel)]="genre.genresName" type="text" class="form-control" name="genrsname" placeholder="Add a Genre">
+      <a  type="button" class="btn btn-success btn-sml" (click)="addGenres(genre)">ADD</a>
+  </div>
+  </form>
 </body>
-

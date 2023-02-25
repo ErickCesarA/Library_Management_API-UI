@@ -14,12 +14,15 @@ import { LibManageService } from 'src/app/Services/Lib-Manage.service';
 export class AddBookComponent {
 
   @Input() book?: BooksModels;
+  @Input() genre?: GenresModels;
   @Output() bookUpdate = new EventEmitter<BooksModels[]>();
+  @Output() genresUpdate = new EventEmitter<GenresModels[]>();
 
   title = 'Lib_Management.UI'
+  books: BooksModels[] = [];
   genres: GenresModels [] = [];
-  bookToUpd?: BooksModels;
-  searchGenres = ""
+  genresCrud?: GenresModels;
+
 
   constructor(private libmanageService: LibManageService , private datePipe : DatePipe){}
 
@@ -29,7 +32,6 @@ export class AddBookComponent {
     .getGeres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
 
-
   }
 
   addBook(book :BooksModels)
@@ -37,9 +39,15 @@ export class AddBookComponent {
     this.libmanageService.addBook(book).subscribe((books : BooksModels[])=>this.bookUpdate.emit(books));
 
   }
-  callGenres()
+  addGenres(genres :GenresModels)
   {
-    alert("alou")
+    this.libmanageService.addGenres(genres).subscribe((genres : GenresModels[])=>this.genresUpdate.emit(genres));
+
   }
+  toAddGenre()
+  {
+    this.genresCrud = new GenresModels()
+  }
+
 }
 
