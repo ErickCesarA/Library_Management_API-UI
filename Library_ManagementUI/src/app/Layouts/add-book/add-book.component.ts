@@ -28,10 +28,16 @@ export class AddBookComponent {
 
   ngOnInit() : void
   {
+    this.libmanageService.refreshLists.subscribe(()=>{this.getAllGenres();});
+
+    this.getAllGenres();
+
+  }
+  private getAllGenres ()
+  {
     this.libmanageService
     .getGenres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
-
   }
 
   addBook(book :BooksModels)
